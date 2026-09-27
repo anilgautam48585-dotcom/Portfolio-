@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anil — Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e10;
+    --bg-raised: #17171a;
+    --text: #f5f3ee;
+    --muted: #8b8b90;
+    --accent: #a996ff;
+    --line: #2a2a2e;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0;
+    padding-top: calc(20px + env(safe-area-inset-top, 0px));
+    padding-bottom: 20px;
+    background: linear-gradient(var(--bg) 70%, transparent);
+    z-index: 10;
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em; }
+  .navlinks { display: flex; gap: 28px; }
+  .navlinks a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  .navlinks a:hover, .navlinks a:focus-visible { color: var(--text); }
+
+  /* HERO */
+  .hero { padding: 8vh 0 10vh; }
+  .hero-eyebrow { color: var(--accent); font-size: 0.95rem; margin-bottom: 18px; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 9vw, 6.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    max-width: 14ch;
+  }
+  .hero-sub {
+    color: var(--muted);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 46ch;
+    line-height: 1.6;
+    margin: 0 0 36px;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary { background: var(--accent); color: #0e0e10; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  /* SECTION HEADERS */
+  .section { padding: 10vh 0; border-top: 1px solid var(--line); }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 48px; gap: 20px; flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .section-head p { color: var(--muted); margin: 0; max-width: 34ch; font-size: 0.95rem; }
+
+  /* WORK GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover, .card:focus-visible { border-color: var(--accent); transform: translateY(-3px); }
+  .card.large { grid-column: span 4; min-height: 320px; }
+  .card.small { grid-column: span 2; }
+  .card .tag { color: var(--accent); font-size: 0.8rem; margin-bottom: auto; }
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 20px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .card p { color: var(--muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-grid p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; margin: 0 0 20px; }
+  .about-grid p strong { color: var(--text); font-weight: 500; }
+  .skills { display: flex; flex-direction: column; gap: 0; }
+  .skill-row {
+    display: flex; justify-content: space-between; padding: 16px 0;
+    border-bottom: 1px solid var(--line); font-size: 0.95rem;
+  }
+  .skill-row span:first-child { color: var(--text); }
+  .skill-row span:last-child { color: var(--muted); }
+
+  /* CONTACT */
+  .contact { text-align: left; }
+  .contact h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    letter-spacing: -0.02em;
+    max-width: 16ch;
+    margin: 0 0 28px;
+  }
+  .contact-links { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 12px; }
+  .contact-links a { color: var(--text); text-decoration: none; font-size: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: border-color 0.2s, color 0.2s; }
+  .contact-links a:hover, .contact-links a:focus-visible { color: var(--accent); border-color: var(--accent); }
+
+  footer { padding: 30px 0 50px; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; }
+
+  @media (max-width: 720px) {
+    .navlinks { display: none; }
+    .card.large, .card.small { grid-column: span 6; }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    footer { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Anil</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="hero-eyebrow">Visual & brand designer</div>
+  <h1>I design things people remember.</h1>
+  <p class="hero-sub">I'm <strong>Anil</strong> — a designer working across branding, digital product, and print. I care about ideas that hold up, not just trends that photograph well.</p>
+  <div class="cta-row">
+    <a href="#work" class="btn btn-primary">See the work</a>
+    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  </div>
+</header>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p>A few projects that show how I think, not just how things look.</p>
+    </div>
+    <div class="grid">
+      <a href="#" class="card large">
+        <span class="tag">Brand identity</span>
+        <div>
+          <h3>Nur Studio rebrand</h3>
+          <p>Full visual identity for a ceramics studio — mark, packaging, and a type system built around their glaze work.</p>
+        </div>
+      </a>
+      <a href="#" class="card small">
+        <span class="tag">App design</span>
+        <div>
+          <h3>Motif</h3>
+          <p>A journaling app redesigned around calm, distraction-free writing.</p>
+        </div>
+      </a>
+      <a href="#" class="card small">
+        <span class="tag">Editorial</span>
+        <div>
+          <h3>Karez magazine</h3>
+          <p>Layout and typography for a quarterly print magazine on regional craft.</p>
+        </div>
+      </a>
+      <a href="#" class="card large">
+        <span class="tag">Web</span>
+        <div>
+          <h3>Saira & Co. site</h3>
+          <p>Marketing site for a boutique architecture firm — built around their material palette and site photography.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I work with small studios and founders who need design that's <strong>considered, not decorative</strong>. My process usually starts with words before it starts with pixels — most design problems are actually clarity problems.</p>
+        <p>I enjoy collecting old signage, bad puns, and a slowly growing library of type specimens.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-row"><span>Brand & identity</span><span>Strategy, systems, guidelines</span></div>
+        <div class="skill-row"><span>Digital product</span><span>UI, prototyping, design systems</span></div>
+        <div class="skill-row"><span>Print & editorial</span><span>Layout, typography</span></div>
+        <div class="skill-row"><span>Tools</span><span>Figma, Illustrator, After Effects</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <h2>Have a project in mind? Let's talk.</h2>
+    <div class="contact-links">
+      <a href="mailto:anilgautam48585@gmail.com">anilgautam48585@gmail.com</a>
+      <a href="tel:+917068311056">+91 70683 11056</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Anil</span>
+  <span>Available for freelance work</span>
+</footer>
+
+</body>
+</html>
