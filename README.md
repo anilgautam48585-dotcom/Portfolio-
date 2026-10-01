@@ -1,2 +1,33 @@
-# Portfolio-
-Mujhe phool bhi banana hai aur portfolio FIR ek aisi Vishesh chij likhna hai aur hamen portfolio ka ek pahla niyam hai aur apna website banana hai har EK chij per hamen use per portfolio ke liye nagrik aur nagrikta ke liye Ham Apne prafulliyon Ko ek Sahi Vishesh se banana chahta hun aur hamen is vishay per polio per hi hoga aur ham karenge website 
+# 🎮 PW Gaming
+
+A modern gaming website built with HTML, CSS and JavaScript.
+
+## 🚀 Features
+
+- 🎮 Gaming-focused homepage
+- 🔥 Modern and stylish UI
+- 📱 Mobile responsive design
+- 🕹️ Game sections
+- ⚡ Fast and lightweight
+- 🌙 Dark gaming theme
+- 🎨 Interactive buttons and animations
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+## 📂 Project Structure
+
+```text
+PW-Gaming/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+│
+└── assets/
+    ├── images/
+    └── icons/
